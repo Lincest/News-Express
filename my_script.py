@@ -26,7 +26,7 @@ if __name__ == '__main__':
             text = geturl(url)
             regex = re.compile(r'<a href="(.*?)" class="c49782"')
             body = regex.findall(text)
-            # print("successful")
+            print("successful")
             x=100
         except:
             x+=1
@@ -58,13 +58,14 @@ if __name__ == '__main__':
                 if(retry < 100):
                     try:
                         tmp = i
-                        html = geturl('https://jwc.xidian.edu.cn/' + i)
+                        url = 'https://jwc.xidian.edu.cn/' + i
+                        html = geturl(url)
                         soup = bs(html, 'html.parser')
                         title = soup.find(name="td", attrs={"class" : "titlestyle49757"})
                         text = soup.find(name="div", attrs={"class" :"v_news_content"})
                         #print(str(title))
                         # print(str(text))
-                        f.write(r"<h1>"+str(title)+r"</h1>")
+                        f.write(r"<h1>"+str(title)+r"</h1>"+r"&nbsp url : <a href="+url+r">" + url + r"</a>")
                         f.write(str(text))
                         f.write(r"<br><br><br><br><br><br><br>")
                         print("写入成功")
@@ -78,4 +79,4 @@ if __name__ == '__main__':
 
 
     f.close()
-    # print("successful")
+    print("successful")
