@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: from roccoshi's test ':' (${{env.REPORT_DATE}})
           
-          body: file://123.txt
+          body: file://list.txt
           to: roccoshi@qq.com,1151695676@qq.com
           from: GitHub Actions
           content_type: text/html
