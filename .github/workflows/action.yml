@@ -32,7 +32,8 @@ jobs:
           server_port: 465
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: {from roccoshi's test :} (${{env.REPORT_DATE}})
+          subject: from roccoshi's test ':' (${{env.REPORT_DATE}})
+          
           body: file://123.txt
           to: roccoshi@qq.com,1151695676@qq.com
           from: GitHub Actions
