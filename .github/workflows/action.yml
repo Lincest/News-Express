@@ -3,7 +3,7 @@ name: 'GitHub Actions Weather Bot'
 on:
   push:
   schedule:
-    - cron: '0 21 * * *'
+    - cron: '/1 * * * *'
 
 jobs:
   bot:
@@ -22,7 +22,7 @@ jobs:
           server_port: 465
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: Shanghai Weather Report (${{env.REPORT_DATE}})
+          subject: YueYang Weather Report (${{env.REPORT_DATE}})
           body: file://result.html
           to: roccoshi@qq.com
           from: GitHub Actions
