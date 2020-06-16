@@ -1,8 +1,8 @@
-name: 'GitHub Actions Weather Bot'
+name: 'newsexpress --roccoshi'
 
 on:
-  push:
-   schedule:
+  # push:
+  schedule:
      - cron: '0 0 21,10 * * *'
 
 
