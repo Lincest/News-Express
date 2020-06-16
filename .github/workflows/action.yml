@@ -50,7 +50,7 @@ jobs:
         password: ${{ secrets.MAIL_PASSWORD }}
         subject: from roccoshi's test ':' (${{env.REPORT_DATE}})
         
-        body: ./text.html
+        body: file://text.html
         to: roccoshi@qq.com
         from: GitHub Actions
         content_type: text/html
