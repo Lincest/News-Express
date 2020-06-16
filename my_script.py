@@ -54,10 +54,9 @@ if __name__ == '__main__':
         with open("./text.html", "w", encoding="utf-8") as f:
             f.write(r"<h1>今日更新内容 :<br><br><br> </h1>")
             for i in body:
-                print(i)
-                if(retry < 100):
+                retry = 0
+                while(retry < 100):               
                     try:
-                        tmp = i
                         url = 'https://jwc.xidian.edu.cn/' + i
                         html = geturl(url)
                         soup = bs(html, 'html.parser')
@@ -68,10 +67,8 @@ if __name__ == '__main__':
                         f.write(r"<h1>"+str(title)+r"</h1>"+r"&nbsp url : <a href="+url+r">" + url + r"</a>")
                         f.write(str(text))
                         f.write(r"<br><br><br><br><br><br><br>")
-                        print("写入成功")
+                        retry = 1000
                     except:
-                        i = tmp
-                        print("wrong, next")
                         retry+=1  # 重复尝试
     else:
         with open("./text.html", "w", encoding="utf-8") as f:
