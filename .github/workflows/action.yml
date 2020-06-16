@@ -52,7 +52,7 @@ jobs:
         subject: 来自roccoshi的西电每日通知快送 (${{env.REPORT_DATE}})
         
         body: file://text.html
-        to: roccoshi@qq.com, 1151695676@qq.com 
+        to: roccoshi@qq.com, 1151695676@qq.com, 995305841@qq.com, 1359245518@qq.com, 2206549334@qq.com
         from: GitHub Actions
         content_type: text/html
 
