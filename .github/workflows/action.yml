@@ -48,9 +48,21 @@ jobs:
         server_port: 465
         username: ${{ secrets.MAIL_USERNAME }}
         password: ${{ secrets.MAIL_PASSWORD }}
-        subject: from roccoshi's test ':' (${{env.REPORT_DATE}})
+        subject: 来自roccoshi的西电每日通知快送 (${{env.REPORT_DATE}})
         
         body: file://text.html
-        to: roccoshi@qq.com
+        to: roccoshi@qq.com, 1151695676@qq.com 
         from: GitHub Actions
         content_type: text/html
+
+    - name: commit
+      run: |
+        git config --global user.email 474617032@qq.com
+        git config --global user.name Lincest
+        git add .
+        git commit -m "update" -a
+    
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
