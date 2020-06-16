@@ -18,7 +18,7 @@ jobs:
           python-version: '3.8'
 
       - name: Run my script
-        run: ./my_script.py
+        run: python ./my_script.py
 
       # - name: 'Get Weather'
       #   run: bash ./weather.sh
