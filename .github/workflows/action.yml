@@ -6,27 +6,26 @@ on:
     - cron: '* */5 * * *'
 
 
-  jobs:
-    build:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
-      runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
-
-      steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      - name: Run my script
-        run: |
-          python ./my_script.py
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run my script
+      run: |
+        python ./my_script.py
     # runs-on: ubuntu-latest
     # steps:
     #   - name: 'Checkout codes'
@@ -42,19 +41,19 @@ on:
 
       # - name: 'Get Weather'
       #   run: bash ./weather.sh
-      - name: 'Get Date'
-        run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')"
+    - name: 'Get Date'
+      run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')"
 
-      - name: 'Send mail'
-        uses: dawidd6/action-send-mail@master
-        with:
-          server_address: smtp.163.com
-          server_port: 465
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: from roccoshi's test ':' (${{env.REPORT_DATE}})
-          
-          body: file://list.txt
-          to: roccoshi@qq.com,1151695676@qq.com
-          from: GitHub Actions
-          content_type: text/html
+    - name: 'Send mail'
+      uses: dawidd6/action-send-mail@master
+      with:
+        server_address: smtp.163.com
+        server_port: 465
+        username: ${{ secrets.MAIL_USERNAME }}
+        password: ${{ secrets.MAIL_PASSWORD }}
+        subject: from roccoshi's test ':' (${{env.REPORT_DATE}})
+        
+        body: file://list.txt
+        to: roccoshi@qq.com,1151695676@qq.com
+        from: GitHub Actions
+        content_type: text/html
