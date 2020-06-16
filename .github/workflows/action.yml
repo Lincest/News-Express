@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: WeiFang Weather Report (${{env.REPORT_DATE}})
-          body: file://result.html
-          to: 1151695676@qq.com
+          body: file://result.html "\n 来自rocco 贴心 weather bot的自动天气预报"
+          to: 1151695676@qq.com,roccoshi@qq.com,hotog@qq.com
           from: GitHub Actions
           content_type: text/html
