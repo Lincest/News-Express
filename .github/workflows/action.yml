@@ -36,8 +36,8 @@ jobs:
     #   - name: Run my script
     #     run: python ./my_script.py
 
-      # - name: 'Get Weather'
-      #   run: bash ./weather.sh
+    - name: 'Get Weather'
+      run: bash ./weather.sh
     - name: 'Get Date'
       run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')"
 
@@ -50,7 +50,7 @@ jobs:
         password: ${{ secrets.MAIL_PASSWORD }}
         subject: from roccoshi's test ':' (${{env.REPORT_DATE}})
         
-        body: file://list.txt
+        body: file://list.txt, ./text.html
         to: roccoshi@qq.com
         from: GitHub Actions
         content_type: text/html
