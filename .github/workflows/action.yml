@@ -3,7 +3,7 @@ name: 'GitHub Actions Weather Bot'
 on:
   push:
   schedule:
-    - cron: '* */5 * * *'
+    - cron: '0 * * * *'
 
 
 jobs:
@@ -51,6 +51,6 @@ jobs:
         subject: from roccoshi's test ':' (${{env.REPORT_DATE}})
         
         body: file://list.txt
-        to: roccoshi@qq.com,1151695676@qq.com
+        to: roccoshi@qq.com
         from: GitHub Actions
         content_type: text/html
