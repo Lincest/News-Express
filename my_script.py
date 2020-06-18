@@ -74,6 +74,13 @@ if __name__ == '__main__':
         with open("./text.html", "w", encoding="utf-8") as f:
             f.write(r"<h1>今天没有更新哦~~~</h1>")
 
+    with open("./runtimes.txt", "r", encoding="utf-8") as f:
+        x = f.read()
+
+    x = str(int(x) + 1)
+    with open("./runtimes.txt", "w", encoding="utf-8") as f:
+        f.write(x)
+
 
     f.close()
     print("successful")
