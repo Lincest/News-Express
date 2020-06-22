@@ -3,7 +3,7 @@ name: 'newsexpress --roccoshi'
 on:
   push:
   schedule:
-     - cron: '0 10,21 * * *'
+     - cron: '0 4,13 * * *'
 
 
 jobs:
