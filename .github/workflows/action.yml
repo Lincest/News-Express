@@ -36,7 +36,7 @@ jobs:
         echo "::set-env name=SHOULD_UPDATE::$up"
 
     - name: 'Send mail'
-      if: ${{SHOULD_UPDATE=='true'}}
+      if: ${{env.SHOULD_UPDATE=='true'}}
       uses: dawidd6/action-send-mail@master
       with:
         server_address: smtp.qq.com
