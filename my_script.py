@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
     for i in body:
         if(date == i):
-            break  # 到此为止, 之后的为之前内容
+            break  # 到此为止, 之后的为之前已经更新内容
         else:
             newbody.append(i)
     date = body[0]
@@ -72,7 +72,7 @@ if __name__ == '__main__':
                         retry+=1  # 重复尝试
         with open("./update","w",encoding="utf-8") as f : 
             f.write("true")
-            
+
     else:
         with open("./text.html", "w", encoding="utf-8") as f:
             f.write(r"<h1>今天没有更新哦~~~</h1>")
