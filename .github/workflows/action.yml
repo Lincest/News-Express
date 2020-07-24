@@ -32,7 +32,7 @@ jobs:
 
     - name: 'Check Update'
       run: |
-        vartext = $(cat file://update)
+        vartext = $(cat ./update)
         echo "::set-env name=SHOULD_UPDATE::${vartext}"
 
     - name: 'Send mail'
