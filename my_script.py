@@ -70,9 +70,14 @@ if __name__ == '__main__':
                         retry = 1000
                     except:
                         retry+=1  # 重复尝试
+        with open("./update","w",encoding="utf-8") as f : 
+            f.write("true")
+            
     else:
         with open("./text.html", "w", encoding="utf-8") as f:
             f.write(r"<h1>今天没有更新哦~~~</h1>")
+        with open("./update","w",encoding="utf-8") as f : 
+            f.write("false")
 
     with open("./runtimes.txt", "r", encoding="utf-8") as f:
         x = f.read()

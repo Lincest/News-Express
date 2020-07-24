@@ -26,26 +26,17 @@ jobs:
     - name: Run my script
       run: |
         python ./my_script.py
-    # runs-on: ubuntu-latest
-    # steps:
-    #   - name: 'Checkout codes'
-    #     uses: actions/checkout@v1
-
-    #   - name: Set up python 3.8
-    #     uses: actions/setup-python@v2
-    #     with:
-    #       python-version: '3.8'
-
-    #   - name: Run my script
-    #     run: python ./my_script.py
-
-    # - name: 'Get Weather'
-    #   run: bash ./weather.sh
 
     - name: 'Get Date'
       run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')"
 
+    - name: 'Check Update'
+      run: |
+        up = $(cat ./update)
+        echo "::set-env name=SHOULD_UPDATE::$up"
+
     - name: 'Send mail'
+      if: ${{SHOULD_UPDATE=='true'}}
       uses: dawidd6/action-send-mail@master
       with:
         server_address: smtp.qq.com
