@@ -32,8 +32,9 @@ jobs:
 
     - name: 'Check Update'
       run: |
-        vartext = $(cat ./update)
+        vartext=$(cat ./update)
         echo "::set-env name=SHOULD_UPDATE::${vartext}"
+      shell: bash
 
     - name: 'Send mail'
       if: ${{env.SHOULD_UPDATE=='true'}}
