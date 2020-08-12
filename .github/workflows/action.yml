@@ -1,9 +1,9 @@
 name: 'newsexpress --roccoshi'
 
 on:
-#   push:
-#   schedule:
-#      - cron: '0 */2 * * *'
+  push:
+  schedule:
+     - cron: '0 */2 * * *'
 
 
 jobs:
