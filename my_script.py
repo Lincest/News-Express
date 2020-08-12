@@ -20,19 +20,23 @@ if __name__ == '__main__':
     cnt = 0
     retry=0
     body = []
+    print("start working.. ")
     while(x <= 50) :
         try:
             url = 'https://jwc.xidian.edu.cn/tzgg.htm'
             text = geturl(url)
-            regex = re.compile(r'<li id="line_u10_\d{1}"><a href="(.*?)" target="_blank"')
-            body = regex.findall(text)
-            print("successful")
+            soup = bs(text,'html.parser')
+            html = soup.find(name="div",attrs={"class":"list"})
+            bodybf = html.find_all('a')
+            for k in bodybf:
+                if(k['href'] and k['href'].find("info") != -1):
+                    body.append(k['href'])
             x=100
         except:
             x+=1
             continue
-
     print(body)
+    
     with open("./update.txt", "r", encoding="utf-8") as f:
         date = f.read()
     newbody = []
