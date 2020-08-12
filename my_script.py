@@ -22,7 +22,7 @@ if __name__ == '__main__':
     body = []
     while(x <= 50) :
         try:
-            url = 'https://jwc.xidian.edu.cn/'
+            url = 'https://jwc.xidian.edu.cn/tzgg.htm'
             text = geturl(url)
             regex = re.compile(r'<a href="(.*?)" class="c49782"')
             body = regex.findall(text)
