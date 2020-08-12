@@ -24,7 +24,7 @@ if __name__ == '__main__':
         try:
             url = 'https://jwc.xidian.edu.cn/tzgg.htm'
             text = geturl(url)
-            regex = re.compile(r'<a href="(.*?)" target="_blank"')
+            regex = re.compile(r'<li id="line_u10_\d{1}"><a href="(.*?)" target="_blank"')
             body = regex.findall(text)
             print("successful")
             x=100
