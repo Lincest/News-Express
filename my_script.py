@@ -64,7 +64,7 @@ if __name__ == '__main__':
                         url = 'https://jwc.xidian.edu.cn/' + i
                         html = geturl(url)
                         soup = bs(html, 'html.parser')
-                        title = soup.find(name="td", attrs={"class" : "titlestyle49757"})
+                        title = soup.find(name="p", attrs={"class" : "tlt"})
                         text = soup.find(name="div", attrs={"class" :"v_news_content"})
                         #print(str(title))
                         # print(str(text))
